@@ -1,0 +1,37 @@
+{
+  "aircraft": "Cessna 182S",
+  "source": "Demo only - replace with actual POH Section 5",
+  "units": {
+    "altitude": "ft",
+    "temp": "C",
+    "speed": "ktas",
+    "fuelFlow": "gph"
+  },
+  "profiles": [
+    {
+      "id": "climb-demo",
+      "name": "Climb demo",
+      "phase": "climb",
+      "points": [{ "fuelFlowGPH": 15, "ktas": 100 }]
+    },
+    {
+      "id": "cruise-65pct-8000",
+      "name": "Cruise 65% @8000 ft",
+      "phase": "cruise",
+      "points": [
+        {
+          "altitudeFt": 8000,
+          "percentPower": 65,
+          "fuelFlowGPH": 11,
+          "ktas": 135
+        }
+      ]
+    },
+    {
+      "id": "climb-allowance",
+      "name": "Climb allowance",
+      "phase": "climb",
+      "points": [{ "fuelFlowGPH": 15, "ktas": 110 }]
+    }
+  ]
+}

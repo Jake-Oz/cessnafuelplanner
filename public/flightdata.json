@@ -1,0 +1,1556 @@
+{
+  "climbPerformance": {
+    "conditions": {
+      "weightLbs": 3100,
+      "flaps": "Up",
+      "cowlFlaps": "Open"
+    },
+    "maximumRateOfClimb": {
+      "notes": "Data based on 2400 RPM, Full Throttle, and mixture set to Maximum Power Fuel Flow placard value.",
+      "data": [
+        {
+          "pressureAltitudeFt": "S.L.",
+          "climbSpeedKias": 80,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 1055,
+            "tempStd0C": 980,
+            "tempPlus20C": 905,
+            "tempPlus40C": 835
+          }
+        },
+        {
+          "pressureAltitudeFt": 2000,
+          "climbSpeedKias": 79,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 945,
+            "tempStd0C": 875,
+            "tempPlus20C": 805,
+            "tempPlus40C": 735
+          }
+        },
+        {
+          "pressureAltitudeFt": 4000,
+          "climbSpeedKias": 78,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 840,
+            "tempStd0C": 770,
+            "tempPlus20C": 705,
+            "tempPlus40C": 635
+          }
+        },
+        {
+          "pressureAltitudeFt": 6000,
+          "climbSpeedKias": 77,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 735,
+            "tempStd0C": 670,
+            "tempPlus20C": 605,
+            "tempPlus40C": 535
+          }
+        },
+        {
+          "pressureAltitudeFt": 8000,
+          "climbSpeedKias": 75,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 625,
+            "tempStd0C": 560,
+            "tempPlus20C": 495,
+            "tempPlus40C": 430
+          }
+        },
+        {
+          "pressureAltitudeFt": 10000,
+          "climbSpeedKias": 74,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 520,
+            "tempStd0C": 455,
+            "tempPlus20C": 390,
+            "tempPlus40C": 330
+          }
+        },
+        {
+          "pressureAltitudeFt": 12000,
+          "climbSpeedKias": 73,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 410,
+            "tempStd0C": 350,
+            "tempPlus20C": 285,
+            "tempPlus40C": 225
+          }
+        },
+        {
+          "pressureAltitudeFt": 14000,
+          "climbSpeedKias": 72,
+          "rateOfClimbFpm": {
+            "tempMinus20C": 310,
+            "tempStd0C": 250,
+            "tempPlus20C": 190,
+            "tempPlus40C": 130
+          }
+        }
+      ]
+    },
+    "timeFuelDistanceToClimb": {
+      "notes": [
+        "Add 1.7 gallons for engine start, taxi, and takeoff allowance.",
+        "Increase time, fuel, and distance by 10% for each 10°C above standard temperature.",
+        "Distances shown are based on zero wind."
+      ],
+      "maximumRateClimb": {
+        "conditions": "Standard Temperature, mixture leaned per placard.",
+        "data": [
+          {
+            "pressureAltitudeFt": "S.L.",
+            "climbSpeedKias": 80,
+            "rateOfClimbFpm": 925,
+            "fromSeaLevel": {
+              "timeMin": 0,
+              "fuelUsedGal": 0.0,
+              "distanceNm": 0
+            }
+          },
+          {
+            "pressureAltitudeFt": 2000,
+            "climbSpeedKias": 79,
+            "rateOfClimbFpm": 835,
+            "fromSeaLevel": {
+              "timeMin": 2,
+              "fuelUsedGal": 0.8,
+              "distanceNm": 3
+            }
+          },
+          {
+            "pressureAltitudeFt": 4000,
+            "climbSpeedKias": 78,
+            "rateOfClimbFpm": 750,
+            "fromSeaLevel": {
+              "timeMin": 5,
+              "fuelUsedGal": 1.5,
+              "distanceNm": 7
+            }
+          },
+          {
+            "pressureAltitudeFt": 6000,
+            "climbSpeedKias": 77,
+            "rateOfClimbFpm": 660,
+            "fromSeaLevel": {
+              "timeMin": 8,
+              "fuelUsedGal": 2.3,
+              "distanceNm": 11
+            }
+          },
+          {
+            "pressureAltitudeFt": 8000,
+            "climbSpeedKias": 75,
+            "rateOfClimbFpm": 565,
+            "fromSeaLevel": {
+              "timeMin": 11,
+              "fuelUsedGal": 3.2,
+              "distanceNm": 16
+            }
+          },
+          {
+            "pressureAltitudeFt": 10000,
+            "climbSpeedKias": 74,
+            "rateOfClimbFpm": 470,
+            "fromSeaLevel": {
+              "timeMin": 15,
+              "fuelUsedGal": 4.2,
+              "distanceNm": 21
+            }
+          },
+          {
+            "pressureAltitudeFt": 12000,
+            "climbSpeedKias": 73,
+            "rateOfClimbFpm": 375,
+            "fromSeaLevel": {
+              "timeMin": 20,
+              "fuelUsedGal": 5.2,
+              "distanceNm": 29
+            }
+          },
+          {
+            "pressureAltitudeFt": 14000,
+            "climbSpeedKias": 72,
+            "rateOfClimbFpm": 285,
+            "fromSeaLevel": {
+              "timeMin": 26,
+              "fuelUsedGal": 6.5,
+              "distanceNm": 38
+            }
+          }
+        ]
+      },
+      "normalClimb": {
+        "conditions": "90 KIAS, 2400 RPM, 23 in. Hg or Full Throttle, 15 GPH or Full Rich, Standard Temperature.",
+        "data": [
+          {
+            "pressureAltitudeFt": "S.L.",
+            "climbSpeedKias": 90,
+            "rateOfClimbFpm": 665,
+            "fromSeaLevel": {
+              "timeMin": 0,
+              "fuelUsedGal": 0.0,
+              "distanceNm": 0
+            }
+          },
+          {
+            "pressureAltitudeFt": 2000,
+            "climbSpeedKias": 90,
+            "rateOfClimbFpm": 625,
+            "fromSeaLevel": {
+              "timeMin": 3,
+              "fuelUsedGal": 0.8,
+              "distanceNm": 5
+            }
+          },
+          {
+            "pressureAltitudeFt": 4000,
+            "climbSpeedKias": 90,
+            "rateOfClimbFpm": 580,
+            "fromSeaLevel": {
+              "timeMin": 6,
+              "fuelUsedGal": 1.6,
+              "distanceNm": 10
+            }
+          },
+          {
+            "pressureAltitudeFt": 6000,
+            "climbSpeedKias": 90,
+            "rateOfClimbFpm": 540,
+            "fromSeaLevel": {
+              "timeMin": 10,
+              "fuelUsedGal": 2.5,
+              "distanceNm": 16
+            }
+          },
+          {
+            "pressureAltitudeFt": 8000,
+            "climbSpeedKias": 90,
+            "rateOfClimbFpm": 455,
+            "fromSeaLevel": {
+              "timeMin": 14,
+              "fuelUsedGal": 3.5,
+              "distanceNm": 23
+            }
+          },
+          {
+            "pressureAltitudeFt": 10000,
+            "climbSpeedKias": 90,
+            "rateOfClimbFpm": 370,
+            "fromSeaLevel": {
+              "timeMin": 19,
+              "fuelUsedGal": 4.6,
+              "distanceNm": 31
+            }
+          }
+        ]
+      }
+    }
+  },
+  "cruisePerformance": {
+    "conditions": {
+      "weightLbs": 3100,
+      "mixture": "Recommended Lean",
+      "cowlFlaps": "Closed"
+    },
+    "dataByAltitude": [
+      {
+        "pressureAltitudeFt": "S.L.",
+
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 27,
+                "stdMinus20C": { "bhpPercent": 0, "ktas": 0, "gph": 0 },
+                "std": { "bhpPercent": 0, "ktas": 0, "gph": 0 },
+                "stdPlus20C": { "bhpPercent": 83, "ktas": 137, "gph": 14.0 }
+              },
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhpPercent": 0, "ktas": 0, "gph": 0 },
+                "std": { "bhpPercent": 82, "ktas": 134, "gph": 13.7 },
+                "stdPlus20C": { "bhpPercent": 79, "ktas": 135, "gph": 13.3 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 80, "ktas": 130, "gph": 13.4 },
+                "std": { "bhpPercent": 77, "ktas": 131, "gph": 13.0 },
+                "stdPlus20C": { "bhpPercent": 75, "ktas": 131, "gph": 12.6 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 76, "ktas": 127, "gph": 12.7 },
+                "std": { "bhpPercent": 73, "ktas": 127, "gph": 12.3 },
+                "stdPlus20C": { "bhpPercent": 71, "ktas": 128, "gph": 11.9 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 123, "gph": 12.0 },
+                "std": { "bhpPercent": 69, "ktas": 124, "gph": 11.6 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 125, "gph": 11.3 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 120, "gph": 11.3 },
+                "std": { "bhpPercent": 64, "ktas": 121, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 121, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 117, "gph": 10.6 },
+                "std": { "bhpPercent": 60, "ktas": 117, "gph": 10.3 },
+                "stdPlus20C": { "bhpPercent": 58, "ktas": 117, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 112, "gph": 10.0 },
+                "std": { "bhpPercent": 55, "ktas": 113, "gph": 9.7 },
+                "stdPlus20C": { "bhpPercent": 54, "ktas": 113, "gph": 9.4 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 27,
+                "stdMinus20C": { "bhpPercent": 0, "ktas": 0, "gph": 0 },
+                "std": { "bhpPercent": 83, "ktas": 134, "gph": 13.9 },
+                "stdPlus20C": { "bhpPercent": 80, "ktas": 135, "gph": 13.4 }
+              },
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhpPercent": 82, "ktas": 131, "gph": 13.7 },
+                "std": { "bhpPercent": 79, "ktas": 132, "gph": 13.2 },
+                "stdPlus20C": { "bhpPercent": 76, "ktas": 132, "gph": 12.8 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 77, "ktas": 128, "gph": 12.9 },
+                "std": { "bhpPercent": 75, "ktas": 129, "gph": 12.5 },
+                "stdPlus20C": { "bhpPercent": 72, "ktas": 129, "gph": 12.1 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 73, "ktas": 125, "gph": 12.3 },
+                "std": { "bhpPercent": 70, "ktas": 126, "gph": 11.9 },
+                "stdPlus20C": { "bhpPercent": 68, "ktas": 127, "gph": 11.5 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 69, "ktas": 122, "gph": 11.6 },
+                "std": { "bhpPercent": 66, "ktas": 123, "gph": 11.2 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 123, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 119, "gph": 10.9 },
+                "std": { "bhpPercent": 62, "ktas": 119, "gph": 10.6 },
+                "stdPlus20C": { "bhpPercent": 60, "ktas": 119, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 115, "gph": 10.3 },
+                "std": { "bhpPercent": 58, "ktas": 115, "gph": 10.0 },
+                "stdPlus20C": { "bhpPercent": 56, "ktas": 115, "gph": 9.8 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 56, "ktas": 111, "gph": 9.7 },
+                "std": { "bhpPercent": 54, "ktas": 111, "gph": 9.4 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 111, "gph": 9.2 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 27,
+                "stdMinus20C": { "bhpPercent": 83, "ktas": 131, "gph": 13.8 },
+                "std": { "bhpPercent": 80, "ktas": 132, "gph": 13.3 },
+                "stdPlus20C": { "bhpPercent": 77, "ktas": 133, "gph": 12.9 }
+              },
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhpPercent": 78, "ktas": 129, "gph": 13.1 },
+                "std": { "bhpPercent": 76, "ktas": 129, "gph": 12.7 },
+                "stdPlus20C": { "bhpPercent": 73, "ktas": 130, "gph": 12.3 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 74, "ktas": 126, "gph": 12.5 },
+                "std": { "bhpPercent": 72, "ktas": 126, "gph": 12.1 },
+                "stdPlus20C": { "bhpPercent": 69, "ktas": 128, "gph": 11.7 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 70, "ktas": 123, "gph": 11.8 },
+                "std": { "bhpPercent": 68, "ktas": 124, "gph": 11.5 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 124, "gph": 11.1 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 66, "ktas": 120, "gph": 11.2 },
+                "std": { "bhpPercent": 64, "ktas": 121, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 121, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 117, "gph": 10.6 },
+                "std": { "bhpPercent": 60, "ktas": 117, "gph": 10.3 },
+                "stdPlus20C": { "bhpPercent": 58, "ktas": 117, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 58, "ktas": 113, "gph": 10.0 },
+                "std": { "bhpPercent": 56, "ktas": 113, "gph": 9.7 },
+                "stdPlus20C": { "bhpPercent": 54, "ktas": 113, "gph": 9.5 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 54, "ktas": 109, "gph": 9.4 },
+                "std": { "bhpPercent": 52, "ktas": 109, "gph": 9.2 },
+                "stdPlus20C": { "bhpPercent": 50, "ktas": 109, "gph": 8.9 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 27,
+                "stdMinus20C": { "bhpPercent": 79, "ktas": 129, "gph": 13.2 },
+                "std": { "bhpPercent": 76, "ktas": 130, "gph": 12.7 },
+                "stdPlus20C": { "bhpPercent": 73, "ktas": 130, "gph": 12.3 }
+              },
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhpPercent": 75, "ktas": 126, "gph": 12.5 },
+                "std": { "bhpPercent": 72, "ktas": 127, "gph": 12.1 },
+                "stdPlus20C": { "bhpPercent": 70, "ktas": 128, "gph": 11.8 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 123, "gph": 11.9 },
+                "std": { "bhpPercent": 68, "ktas": 124, "gph": 11.5 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 125, "gph": 11.2 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 120, "gph": 11.3 },
+                "std": { "bhpPercent": 64, "ktas": 121, "gph": 11.0 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 121, "gph": 10.7 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 63, "ktas": 118, "gph": 10.7 },
+                "std": { "bhpPercent": 61, "ktas": 117, "gph": 10.4 },
+                "stdPlus20C": { "bhpPercent": 59, "ktas": 118, "gph": 10.2 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 114, "gph": 10.2 },
+                "std": { "bhpPercent": 57, "ktas": 114, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 114, "gph": 9.6 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 55, "ktas": 110, "gph": 9.6 },
+                "std": { "bhpPercent": 53, "ktas": 111, "gph": 9.4 },
+                "stdPlus20C": { "bhpPercent": 51, "ktas": 111, "gph": 9.1 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 27,
+                "stdMinus20C": { "bhpPercent": 74, "ktas": 126, "gph": 12.5 },
+                "std": { "bhpPercent": 72, "ktas": 127, "gph": 12.1 },
+                "stdPlus20C": { "bhpPercent": 70, "ktas": 128, "gph": 11.7 }
+              },
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 123, "gph": 11.9 },
+                "std": { "bhpPercent": 68, "ktas": 124, "gph": 11.5 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 125, "gph": 11.2 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 121, "gph": 11.4 },
+                "std": { "bhpPercent": 65, "ktas": 122, "gph": 11.0 },
+                "stdPlus20C": { "bhpPercent": 63, "ktas": 121, "gph": 10.7 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 63, "ktas": 118, "gph": 10.8 },
+                "std": { "bhpPercent": 61, "ktas": 118, "gph": 10.5 },
+                "stdPlus20C": { "bhpPercent": 59, "ktas": 118, "gph": 10.2 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 114, "gph": 10.3 },
+                "std": { "bhpPercent": 58, "ktas": 115, "gph": 10.0 },
+                "stdPlus20C": { "bhpPercent": 56, "ktas": 115, "gph": 9.7 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 56, "ktas": 111, "gph": 9.8 },
+                "std": { "bhpPercent": 54, "ktas": 111, "gph": 9.5 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 112, "gph": 9.2 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 52, "ktas": 108, "gph": 9.2 },
+                "std": { "bhpPercent": 50, "ktas": 108, "gph": 9.0 },
+                "stdPlus20C": { "bhpPercent": 49, "ktas": 108, "gph": 8.8 }
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "pressureAltitudeFt": 2000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhp": 0, "ktas": 0, "gph": 0 },
+                "std": { "bhp": 0, "ktas": 0, "gph": 0 },
+                "stdPlus20C": { "bhp": 82, "ktas": 139, "gph": 13.7 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhp": 83, "ktas": 134, "gph": 13.9 },
+                "std": { "bhp": 80, "ktas": 135, "gph": 13.4 },
+                "stdPlus20C": { "bhp": 77, "ktas": 135, "gph": 12.9 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhp": 78, "ktas": 131, "gph": 13.1 },
+                "std": { "bhp": 75, "ktas": 131, "gph": 12.7 },
+                "stdPlus20C": { "bhp": 73, "ktas": 132, "gph": 12.3 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhp": 74, "ktas": 127, "gph": 12.4 },
+                "std": { "bhp": 71, "ktas": 128, "gph": 12.0 },
+                "stdPlus20C": { "bhp": 69, "ktas": 129, "gph": 11.6 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhp": 69, "ktas": 124, "gph": 11.6 },
+                "std": { "bhp": 67, "ktas": 125, "gph": 11.3 },
+                "stdPlus20C": { "bhp": 64, "ktas": 125, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhp": 64, "ktas": 121, "gph": 10.9 },
+                "std": { "bhp": 62, "ktas": 120, "gph": 10.6 },
+                "stdPlus20C": { "bhp": 60, "ktas": 121, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhp": 60, "ktas": 116, "gph": 10.3 },
+                "std": { "bhp": 58, "ktas": 117, "gph": 10.0 },
+                "stdPlus20C": { "bhp": 56, "ktas": 117, "gph": 9.7 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhp": 0, "ktas": 0, "gph": 0 },
+                "std": { "bhp": 81, "ktas": 136, "gph": 13.6 },
+                "stdPlus20C": { "bhp": 78, "ktas": 136, "gph": 13.1 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhp": 80, "ktas": 132, "gph": 13.3 },
+                "std": { "bhp": 77, "ktas": 132, "gph": 12.9 },
+                "stdPlus20C": { "bhp": 74, "ktas": 133, "gph": 12.5 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhp": 75, "ktas": 129, "gph": 12.6 },
+                "std": { "bhp": 73, "ktas": 129, "gph": 12.2 },
+                "stdPlus20C": { "bhp": 70, "ktas": 131, "gph": 11.8 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhp": 71, "ktas": 125, "gph": 11.9 },
+                "std": { "bhp": 68, "ktas": 126, "gph": 11.6 },
+                "stdPlus20C": { "bhp": 66, "ktas": 127, "gph": 11.2 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhp": 66, "ktas": 122, "gph": 11.3 },
+                "std": { "bhp": 64, "ktas": 123, "gph": 10.9 },
+                "stdPlus20C": { "bhp": 62, "ktas": 123, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhp": 62, "ktas": 118, "gph": 10.6 },
+                "std": { "bhp": 60, "ktas": 119, "gph": 10.3 },
+                "stdPlus20C": { "bhp": 58, "ktas": 119, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhp": 58, "ktas": 114, "gph": 10.0 },
+                "std": { "bhp": 56, "ktas": 115, "gph": 9.7 },
+                "stdPlus20C": { "bhp": 54, "ktas": 115, "gph": 9.5 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhp": 81, "ktas": 132, "gph": 13.5 },
+                "std": { "bhp": 78, "ktas": 133, "gph": 13.1 },
+                "stdPlus20C": { "bhp": 75, "ktas": 134, "gph": 12.6 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhp": 77, "ktas": 130, "gph": 12.8 },
+                "std": { "bhp": 74, "ktas": 130, "gph": 12.4 },
+                "stdPlus20C": { "bhp": 71, "ktas": 131, "gph": 12.0 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhp": 72, "ktas": 126, "gph": 12.2 },
+                "std": { "bhp": 70, "ktas": 127, "gph": 11.8 },
+                "stdPlus20C": { "bhp": 68, "ktas": 128, "gph": 11.4 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhp": 68, "ktas": 124, "gph": 11.5 },
+                "std": { "bhp": 66, "ktas": 124, "gph": 11.2 },
+                "stdPlus20C": { "bhp": 64, "ktas": 124, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhp": 64, "ktas": 120, "gph": 10.9 },
+                "std": { "bhp": 62, "ktas": 120, "gph": 10.6 },
+                "stdPlus20C": { "bhp": 60, "ktas": 121, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhp": 60, "ktas": 116, "gph": 10.3 },
+                "std": { "bhp": 58, "ktas": 117, "gph": 10.0 },
+                "stdPlus20C": { "bhp": 56, "ktas": 117, "gph": 9.7 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhp": 56, "ktas": 113, "gph": 9.7 },
+                "std": { "bhp": 54, "ktas": 113, "gph": 9.4 },
+                "stdPlus20C": { "bhp": 52, "ktas": 113, "gph": 9.2 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhp": 77, "ktas": 130, "gph": 12.9 },
+                "std": { "bhp": 74, "ktas": 130, "gph": 12.4 },
+                "stdPlus20C": { "bhp": 72, "ktas": 131, "gph": 12.1 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhp": 73, "ktas": 127, "gph": 12.2 },
+                "std": { "bhp": 70, "ktas": 128, "gph": 11.8 },
+                "stdPlus20C": { "bhp": 68, "ktas": 128, "gph": 11.5 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhp": 69, "ktas": 124, "gph": 11.6 },
+                "std": { "bhp": 66, "ktas": 125, "gph": 11.3 },
+                "stdPlus20C": { "bhp": 64, "ktas": 125, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhp": 65, "ktas": 121, "gph": 11.0 },
+                "std": { "bhp": 63, "ktas": 121, "gph": 10.7 },
+                "stdPlus20C": { "bhp": 61, "ktas": 122, "gph": 10.4 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhp": 61, "ktas": 117, "gph": 10.5 },
+                "std": { "bhp": 59, "ktas": 118, "gph": 10.2 },
+                "stdPlus20C": { "bhp": 57, "ktas": 118, "gph": 9.9 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhp": 57, "ktas": 114, "gph": 9.9 },
+                "std": { "bhp": 55, "ktas": 114, "gph": 9.6 },
+                "stdPlus20C": { "bhp": 53, "ktas": 114, "gph": 9.4 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhp": 53, "ktas": 110, "gph": 9.3 },
+                "std": { "bhp": 51, "ktas": 110, "gph": 9.1 },
+                "stdPlus20C": { "bhp": 49, "ktas": 110, "gph": 8.8 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 26,
+                "stdMinus20C": { "bhp": 73, "ktas": 127, "gph": 12.2 },
+                "std": { "bhp": 70, "ktas": 128, "gph": 11.8 },
+                "stdPlus20C": { "bhp": 68, "ktas": 128, "gph": 11.5 }
+              },
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhp": 69, "ktas": 124, "gph": 11.7 },
+                "std": { "bhp": 67, "ktas": 125, "gph": 11.3 },
+                "stdPlus20C": { "bhp": 64, "ktas": 125, "gph": 11.0 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhp": 65, "ktas": 122, "gph": 11.1 },
+                "std": { "bhp": 63, "ktas": 121, "gph": 10.8 },
+                "stdPlus20C": { "bhp": 61, "ktas": 122, "gph": 10.5 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhp": 62, "ktas": 118, "gph": 10.6 },
+                "std": { "bhp": 59, "ktas": 118, "gph": 10.2 },
+                "stdPlus20C": { "bhp": 57, "ktas": 119, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhp": 58, "ktas": 115, "gph": 10.0 },
+                "std": { "bhp": 56, "ktas": 115, "gph": 9.7 },
+                "stdPlus20C": { "bhp": 54, "ktas": 115, "gph": 9.5 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhp": 54, "ktas": 111, "gph": 9.5 },
+                "std": { "bhp": 52, "ktas": 111, "gph": 9.2 },
+                "stdPlus20C": { "bhp": 50, "ktas": 111, "gph": 9.0 }
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "pressureAltitudeFt": 4000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 0, "ktas": 0, "gph": 0 },
+                "std": { "bhpPercent": 82, "ktas": 139, "gph": 13.8 },
+                "stdPlus20C": { "bhpPercent": 80, "ktas": 140, "gph": 13.3 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 81, "ktas": 135, "gph": 13.5 },
+                "std": { "bhpPercent": 78, "ktas": 135, "gph": 13.0 },
+                "stdPlus20C": { "bhpPercent": 75, "ktas": 137, "gph": 12.6 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 76, "ktas": 131, "gph": 12.8 },
+                "std": { "bhpPercent": 73, "ktas": 132, "gph": 12.3 },
+                "stdPlus20C": { "bhpPercent": 71, "ktas": 133, "gph": 11.9 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 128, "gph": 12.0 },
+                "std": { "bhpPercent": 69, "ktas": 129, "gph": 11.6 },
+                "stdPlus20C": { "bhpPercent": 67, "ktas": 129, "gph": 11.3 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 125, "gph": 11.3 },
+                "std": { "bhpPercent": 64, "ktas": 124, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 125, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 120, "gph": 10.6 },
+                "std": { "bhpPercent": 60, "ktas": 121, "gph": 10.3 },
+                "stdPlus20C": { "bhpPercent": 58, "ktas": 121, "gph": 10.0 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 82, "ktas": 136, "gph": 13.8 },
+                "std": { "bhpPercent": 79, "ktas": 136, "gph": 13.3 },
+                "stdPlus20C": { "bhpPercent": 77, "ktas": 137, "gph": 12.8 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 78, "ktas": 133, "gph": 13.0 },
+                "std": { "bhpPercent": 75, "ktas": 133, "gph": 12.6 },
+                "stdPlus20C": { "bhpPercent": 72, "ktas": 135, "gph": 12.2 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 73, "ktas": 129, "gph": 12.3 },
+                "std": { "bhpPercent": 71, "ktas": 130, "gph": 11.9 },
+                "stdPlus20C": { "bhpPercent": 68, "ktas": 130, "gph": 11.5 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 69, "ktas": 126, "gph": 11.6 },
+                "std": { "bhpPercent": 66, "ktas": 126, "gph": 11.2 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 127, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 122, "gph": 10.9 },
+                "std": { "bhpPercent": 62, "ktas": 123, "gph": 10.6 },
+                "stdPlus20C": { "bhpPercent": 60, "ktas": 123, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 118, "gph": 10.3 },
+                "std": { "bhpPercent": 58, "ktas": 119, "gph": 10.0 },
+                "stdPlus20C": { "bhpPercent": 56, "ktas": 119, "gph": 9.7 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 79, "ktas": 133, "gph": 13.2 },
+                "std": { "bhpPercent": 76, "ktas": 134, "gph": 12.7 },
+                "stdPlus20C": { "bhpPercent": 73, "ktas": 135, "gph": 12.3 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 75, "ktas": 130, "gph": 12.5 },
+                "std": { "bhpPercent": 72, "ktas": 131, "gph": 12.1 },
+                "stdPlus20C": { "bhpPercent": 70, "ktas": 132, "gph": 11.7 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 70, "ktas": 127, "gph": 11.9 },
+                "std": { "bhpPercent": 68, "ktas": 128, "gph": 11.5 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 128, "gph": 11.1 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 66, "ktas": 124, "gph": 11.2 },
+                "std": { "bhpPercent": 64, "ktas": 124, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 125, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 120, "gph": 10.6 },
+                "std": { "bhpPercent": 60, "ktas": 121, "gph": 10.3 },
+                "stdPlus20C": { "bhpPercent": 58, "ktas": 121, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 58, "ktas": 116, "gph": 10.0 },
+                "std": { "bhpPercent": 56, "ktas": 116, "gph": 9.7 },
+                "stdPlus20C": { "bhpPercent": 54, "ktas": 117, "gph": 9.4 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 75, "ktas": 130, "gph": 12.6 },
+                "std": { "bhpPercent": 72, "ktas": 132, "gph": 12.2 },
+                "stdPlus20C": { "bhpPercent": 70, "ktas": 132, "gph": 11.8 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 128, "gph": 11.9 },
+                "std": { "bhpPercent": 68, "ktas": 129, "gph": 11.6 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 128, "gph": 11.2 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 125, "gph": 11.3 },
+                "std": { "bhpPercent": 65, "ktas": 125, "gph": 11.0 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 125, "gph": 10.7 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 63, "ktas": 121, "gph": 10.7 },
+                "std": { "bhpPercent": 61, "ktas": 122, "gph": 10.4 },
+                "stdPlus20C": { "bhpPercent": 59, "ktas": 122, "gph": 10.1 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 117, "gph": 10.2 },
+                "std": { "bhpPercent": 57, "ktas": 118, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 118, "gph": 9.6 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 55, "ktas": 114, "gph": 9.6 },
+                "std": { "bhpPercent": 53, "ktas": 114, "gph": 9.3 },
+                "stdPlus20C": { "bhpPercent": 51, "ktas": 113, "gph": 9.1 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 25,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 128, "gph": 12.0 },
+                "std": { "bhpPercent": 69, "ktas": 129, "gph": 11.6 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 129, "gph": 11.2 }
+              },
+              {
+                "manifoldPressureInHg": 24,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 125, "gph": 11.4 },
+                "std": { "bhpPercent": 65, "ktas": 125, "gph": 11.0 },
+                "stdPlus20C": { "bhpPercent": 63, "ktas": 126, "gph": 10.7 }
+              },
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 63, "ktas": 121, "gph": 10.8 },
+                "std": { "bhpPercent": 61, "ktas": 122, "gph": 10.5 },
+                "stdPlus20C": { "bhpPercent": 59, "ktas": 122, "gph": 10.2 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 118, "gph": 10.3 },
+                "std": { "bhpPercent": 58, "ktas": 118, "gph": 10.0 },
+                "stdPlus20C": { "bhpPercent": 56, "ktas": 119, "gph": 9.7 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 56, "ktas": 115, "gph": 9.7 },
+                "std": { "bhpPercent": 54, "ktas": 115, "gph": 9.5 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 115, "gph": 9.2 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pressureAltitudeFt": 6000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 79, "ktas": 135, "gph": 13.2 },
+                "std": { "bhpPercent": 76, "ktas": 136, "gph": 12.7 },
+                "stdPlus20C": { "bhpPercent": 73, "ktas": 137, "gph": 12.3 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 74, "ktas": 132, "gph": 12.4 },
+                "std": { "bhpPercent": 71, "ktas": 133, "gph": 12.0 },
+                "stdPlus20C": { "bhpPercent": 69, "ktas": 133, "gph": 11.6 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 69, "ktas": 129, "gph": 11.7 },
+                "std": { "bhpPercent": 67, "ktas": 128, "gph": 11.3 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 129, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 124, "gph": 10.9 },
+                "std": { "bhpPercent": 62, "ktas": 125, "gph": 10.6 },
+                "stdPlus20C": { "bhpPercent": 60, "ktas": 125, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 120, "gph": 10.3 },
+                "std": { "bhpPercent": 57, "ktas": 120, "gph": 10.0 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 120, "gph": 9.7 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 76, "ktas": 133, "gph": 12.7 },
+                "std": { "bhpPercent": 73, "ktas": 134, "gph": 12.2 },
+                "stdPlus20C": { "bhpPercent": 70, "ktas": 135, "gph": 11.9 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 130, "gph": 12.0 },
+                "std": { "bhpPercent": 68, "ktas": 130, "gph": 11.6 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 131, "gph": 11.2 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 66, "ktas": 126, "gph": 11.3 },
+                "std": { "bhpPercent": 64, "ktas": 127, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 127, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 122, "gph": 10.6 },
+                "std": { "bhpPercent": 60, "ktas": 122, "gph": 10.3 },
+                "stdPlus20C": { "bhpPercent": 58, "ktas": 123, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 118, "gph": 10.0 },
+                "std": { "bhpPercent": 55, "ktas": 118, "gph": 9.7 },
+                "stdPlus20C": { "bhpPercent": 53, "ktas": 118, "gph": 9.4 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 73, "ktas": 131, "gph": 12.2 },
+                "std": { "bhpPercent": 70, "ktas": 132, "gph": 11.8 },
+                "stdPlus20C": { "bhpPercent": 68, "ktas": 132, "gph": 11.4 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 68, "ktas": 128, "gph": 11.5 },
+                "std": { "bhpPercent": 66, "ktas": 128, "gph": 11.2 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 129, "gph": 10.8 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 124, "gph": 10.9 },
+                "std": { "bhpPercent": 62, "ktas": 124, "gph": 10.6 },
+                "stdPlus20C": { "bhpPercent": 60, "ktas": 124, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 120, "gph": 10.3 },
+                "std": { "bhpPercent": 57, "ktas": 120, "gph": 10.0 },
+                "stdPlus20C": { "bhpPercent": 56, "ktas": 120, "gph": 9.7 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 55, "ktas": 116, "gph": 9.7 },
+                "std": { "bhpPercent": 53, "ktas": 116, "gph": 9.4 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 115, "gph": 9.1 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 69, "ktas": 129, "gph": 11.6 },
+                "std": { "bhpPercent": 66, "ktas": 128, "gph": 11.3 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 129, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 65, "ktas": 125, "gph": 11.0 },
+                "std": { "bhpPercent": 63, "ktas": 125, "gph": 10.7 },
+                "stdPlus20C": { "bhpPercent": 60, "ktas": 125, "gph": 10.4 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 61, "ktas": 121, "gph": 10.4 },
+                "std": { "bhpPercent": 59, "ktas": 121, "gph": 10.1 },
+                "stdPlus20C": { "bhpPercent": 57, "ktas": 121, "gph": 9.9 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 117, "gph": 9.9 },
+                "std": { "bhpPercent": 55, "ktas": 117, "gph": 9.6 },
+                "stdPlus20C": { "bhpPercent": 53, "ktas": 117, "gph": 9.3 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 53, "ktas": 113, "gph": 9.3 },
+                "std": { "bhpPercent": 51, "ktas": 113, "gph": 9.0 },
+                "stdPlus20C": { "bhpPercent": 49, "ktas": 112, "gph": 8.8 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 23,
+                "stdMinus20C": { "bhpPercent": 65, "ktas": 125, "gph": 11.1 },
+                "std": { "bhpPercent": 63, "ktas": 126, "gph": 10.8 },
+                "stdPlus20C": { "bhpPercent": 61, "ktas": 126, "gph": 10.5 }
+              },
+              {
+                "manifoldPressureInHg": 22,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 122, "gph": 10.5 },
+                "std": { "bhpPercent": 59, "ktas": 122, "gph": 10.2 },
+                "stdPlus20C": { "bhpPercent": 57, "ktas": 122, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 58, "ktas": 118, "gph": 10.0 },
+                "std": { "bhpPercent": 56, "ktas": 118, "gph": 9.7 },
+                "stdPlus20C": { "bhpPercent": 54, "ktas": 118, "gph": 9.4 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 54, "ktas": 114, "gph": 9.5 },
+                "std": { "bhpPercent": 52, "ktas": 114, "gph": 9.2 },
+                "stdPlus20C": { "bhpPercent": 50, "ktas": 113, "gph": 8.9 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 50, "ktas": 110, "gph": 8.9 },
+                "std": { "bhpPercent": 48, "ktas": 109, "gph": 8.7 },
+                "stdPlus20C": { "bhpPercent": 47, "ktas": 108, "gph": 8.4 }
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "pressureAltitudeFt": 8000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 71, "ktas": 133, "gph": 12.0 },
+                "std": { "bhpPercent": 69, "ktas": 133, "gph": 11.6 },
+                "stdPlus20C": { "bhpPercent": 66, "ktas": 134, "gph": 11.3 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 67, "ktas": 128, "gph": 11.3 },
+                "std": { "bhpPercent": 64, "ktas": 129, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 129, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 124, "gph": 10.6 },
+                "std": { "bhpPercent": 59, "ktas": 124, "gph": 10.3 },
+                "stdPlus20C": { "bhpPercent": 57, "ktas": 124, "gph": 10.0 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 119, "gph": 9.9 },
+                "std": { "bhpPercent": 55, "ktas": 119, "gph": 9.6 },
+                "stdPlus20C": { "bhpPercent": 53, "ktas": 119, "gph": 9.3 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 69, "ktas": 130, "gph": 11.6 },
+                "std": { "bhpPercent": 66, "ktas": 131, "gph": 11.2 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 131, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 126, "gph": 10.9 },
+                "std": { "bhpPercent": 62, "ktas": 126, "gph": 10.6 },
+                "stdPlus20C": { "bhpPercent": 60, "ktas": 127, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 122, "gph": 10.3 },
+                "std": { "bhpPercent": 57, "ktas": 122, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 122, "gph": 9.7 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 55, "ktas": 117, "gph": 9.6 },
+                "std": { "bhpPercent": 53, "ktas": 117, "gph": 9.3 },
+                "stdPlus20C": { "bhpPercent": 51, "ktas": 116, "gph": 9.1 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 66, "ktas": 127, "gph": 11.2 },
+                "std": { "bhpPercent": 64, "ktas": 128, "gph": 10.8 },
+                "stdPlus20C": { "bhpPercent": 61, "ktas": 128, "gph": 10.5 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 124, "gph": 10.6 },
+                "std": { "bhpPercent": 59, "ktas": 124, "gph": 10.2 },
+                "stdPlus20C": { "bhpPercent": 57, "ktas": 124, "gph": 9.9 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 119, "gph": 9.9 },
+                "std": { "bhpPercent": 55, "ktas": 120, "gph": 9.6 },
+                "stdPlus20C": { "bhpPercent": 53, "ktas": 119, "gph": 9.4 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 53, "ktas": 115, "gph": 9.3 },
+                "std": { "bhpPercent": 51, "ktas": 114, "gph": 9.0 },
+                "stdPlus20C": { "bhpPercent": 49, "ktas": 113, "gph": 8.8 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 63, "ktas": 125, "gph": 10.7 },
+                "std": { "bhpPercent": 60, "ktas": 125, "gph": 10.4 },
+                "stdPlus20C": { "bhpPercent": 58, "ktas": 125, "gph": 10.1 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 121, "gph": 10.1 },
+                "std": { "bhpPercent": 56, "ktas": 121, "gph": 9.8 },
+                "stdPlus20C": { "bhpPercent": 54, "ktas": 121, "gph": 9.6 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 54, "ktas": 117, "gph": 9.5 },
+                "std": { "bhpPercent": 52, "ktas": 116, "gph": 9.3 },
+                "stdPlus20C": { "bhpPercent": 51, "ktas": 115, "gph": 9.0 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 50, "ktas": 112, "gph": 9.0 },
+                "std": { "bhpPercent": 48, "ktas": 111, "gph": 8.7 },
+                "stdPlus20C": { "bhpPercent": 47, "ktas": 109, "gph": 8.5 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 21,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 122, "gph": 10.3 },
+                "std": { "bhpPercent": 57, "ktas": 122, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 122, "gph": 9.7 }
+              },
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 56, "ktas": 118, "gph": 9.7 },
+                "std": { "bhpPercent": 54, "ktas": 118, "gph": 9.4 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 117, "gph": 9.2 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 52, "ktas": 114, "gph": 9.1 },
+                "std": { "bhpPercent": 50, "ktas": 113, "gph": 8.9 },
+                "stdPlus20C": { "bhpPercent": 48, "ktas": 111, "gph": 8.6 }
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "pressureAltitudeFt": 10000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 69, "ktas": 132, "gph": 11.6 },
+                "std": { "bhpPercent": 66, "ktas": 133, "gph": 11.2 },
+                "stdPlus20C": { "bhpPercent": 64, "ktas": 133, "gph": 10.9 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 128, "gph": 10.9 },
+                "std": { "bhpPercent": 62, "ktas": 128, "gph": 10.6 },
+                "stdPlus20C": { "bhpPercent": 59, "ktas": 128, "gph": 10.3 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 123, "gph": 10.2 },
+                "std": { "bhpPercent": 57, "ktas": 123, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 123, "gph": 9.6 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 66, "ktas": 130, "gph": 11.2 },
+                "std": { "bhpPercent": 64, "ktas": 131, "gph": 10.9 },
+                "stdPlus20C": { "bhpPercent": 62, "ktas": 131, "gph": 10.6 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 62, "ktas": 126, "gph": 10.6 },
+                "std": { "bhpPercent": 59, "ktas": 126, "gph": 10.2 },
+                "stdPlus20C": { "bhpPercent": 57, "ktas": 126, "gph": 9.9 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 121, "gph": 9.9 },
+                "std": { "bhpPercent": 55, "ktas": 121, "gph": 9.6 },
+                "stdPlus20C": { "bhpPercent": 53, "ktas": 120, "gph": 9.3 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 64, "ktas": 128, "gph": 10.8 },
+                "std": { "bhpPercent": 61, "ktas": 128, "gph": 10.5 },
+                "stdPlus20C": { "bhpPercent": 59, "ktas": 128, "gph": 10.2 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 123, "gph": 10.2 },
+                "std": { "bhpPercent": 57, "ktas": 124, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 123, "gph": 9.6 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 55, "ktas": 119, "gph": 9.6 },
+                "std": { "bhpPercent": 53, "ktas": 118, "gph": 9.3 },
+                "stdPlus20C": { "bhpPercent": 51, "ktas": 117, "gph": 9.0 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 60, "ktas": 125, "gph": 10.4 },
+                "std": { "bhpPercent": 58, "ktas": 125, "gph": 10.1 },
+                "stdPlus20C": { "bhpPercent": 56, "ktas": 125, "gph": 9.8 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 56, "ktas": 120, "gph": 9.8 },
+                "std": { "bhpPercent": 54, "ktas": 120, "gph": 9.5 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 119, "gph": 9.2 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 52, "ktas": 115, "gph": 9.2 },
+                "std": { "bhpPercent": 50, "ktas": 114, "gph": 8.9 },
+                "stdPlus20C": { "bhpPercent": 48, "ktas": 113, "gph": 8.7 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 20,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 121, "gph": 9.9 },
+                "std": { "bhpPercent": 55, "ktas": 122, "gph": 9.6 },
+                "stdPlus20C": { "bhpPercent": 53, "ktas": 121, "gph": 9.4 }
+              },
+              {
+                "manifoldPressureInHg": 19,
+                "stdMinus20C": { "bhpPercent": 53, "ktas": 117, "gph": 9.4 },
+                "std": { "bhpPercent": 51, "ktas": 116, "gph": 9.1 },
+                "stdPlus20C": { "bhpPercent": 50, "ktas": 115, "gph": 8.9 }
+              },
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 49, "ktas": 112, "gph": 8.8 },
+                "std": { "bhpPercent": 48, "ktas": 110, "gph": 8.6 },
+                "stdPlus20C": { "bhpPercent": 46, "ktas": 108, "gph": 8.3 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pressureAltitudeFt": 12000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 61, "ktas": 127, "gph": 10.5 },
+                "std": { "bhpPercent": 59, "ktas": 128, "gph": 10.2 },
+                "stdPlus20C": { "bhpPercent": 57, "ktas": 127, "gph": 9.9 }
+              },
+              {
+                "manifoldPressureInHg": 17,
+                "stdMinus20C": { "bhpPercent": 56, "ktas": 122, "gph": 9.8 },
+                "std": { "bhpPercent": 54, "ktas": 121, "gph": 9.5 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 120, "gph": 9.2 }
+              },
+              {
+                "manifoldPressureInHg": 16,
+                "stdMinus20C": { "bhpPercent": 51, "ktas": 116, "gph": 9.1 },
+                "std": { "bhpPercent": 49, "ktas": 114, "gph": 8.8 },
+                "stdPlus20C": { "bhpPercent": 48, "ktas": 112, "gph": 8.6 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 59, "ktas": 125, "gph": 10.2 },
+                "std": { "bhpPercent": 57, "ktas": 125, "gph": 9.9 },
+                "stdPlus20C": { "bhpPercent": 55, "ktas": 124, "gph": 9.6 }
+              },
+              {
+                "manifoldPressureInHg": 17,
+                "stdMinus20C": { "bhpPercent": 54, "ktas": 120, "gph": 9.5 },
+                "std": { "bhpPercent": 52, "ktas": 119, "gph": 9.2 },
+                "stdPlus20C": { "bhpPercent": 50, "ktas": 117, "gph": 9.0 }
+              },
+              {
+                "manifoldPressureInHg": 16,
+                "stdMinus20C": { "bhpPercent": 49, "ktas": 113, "gph": 8.8 },
+                "std": { "bhpPercent": 48, "ktas": 111, "gph": 8.6 },
+                "stdPlus20C": { "bhpPercent": 46, "ktas": 107, "gph": 8.3 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 57, "ktas": 123, "gph": 9.8 },
+                "std": { "bhpPercent": 54, "ktas": 122, "gph": 9.5 },
+                "stdPlus20C": { "bhpPercent": 52, "ktas": 121, "gph": 9.3 }
+              },
+              {
+                "manifoldPressureInHg": 17,
+                "stdMinus20C": { "bhpPercent": 52, "ktas": 117, "gph": 9.2 },
+                "std": { "bhpPercent": 50, "ktas": 115, "gph": 8.9 },
+                "stdPlus20C": { "bhpPercent": 48, "ktas": 114, "gph": 8.7 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 54, "ktas": 119, "gph": 9.4 },
+                "std": { "bhpPercent": 52, "ktas": 118, "gph": 9.2 },
+                "stdPlus20C": { "bhpPercent": 50, "ktas": 116, "gph": 8.9 }
+              },
+              {
+                "manifoldPressureInHg": 17,
+                "stdMinus20C": { "bhpPercent": 49, "ktas": 113, "gph": 8.9 },
+                "std": { "bhpPercent": 48, "ktas": 112, "gph": 8.6 },
+                "stdPlus20C": { "bhpPercent": 46, "ktas": 108, "gph": 8.3 }
+              }
+            ]
+          },
+          {
+            "rpm": 2000,
+            "performance": [
+              {
+                "manifoldPressureInHg": 18,
+                "stdMinus20C": { "bhpPercent": 51, "ktas": 115, "gph": 9.1 },
+                "std": { "bhpPercent": 49, "ktas": 114, "gph": 8.8 },
+                "stdPlus20C": { "bhpPercent": 47, "ktas": 111, "gph": 8.5 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "pressureAltitudeFt": 14000,
+        "dataByRpm": [
+          {
+            "rpm": 2400,
+            "performance": [
+              {
+                "manifoldPressureInHg": 16,
+                "stdMinus20C": { "bhpPercent": 53, "ktas": 120, "gph": 9.4 },
+                "std": { "bhpPercent": 51, "ktas": 118, "gph": 9.1 },
+                "stdPlus20C": { "bhpPercent": 49, "ktas": 116, "gph": 8.8 }
+              },
+              {
+                "manifoldPressureInHg": 15,
+                "stdMinus20C": { "bhpPercent": 48, "ktas": 112, "gph": 8.7 },
+                "std": { "bhpPercent": 46, "ktas": 109, "gph": 8.4 },
+                "stdPlus20C": { "bhpPercent": 45, "ktas": 104, "gph": 8.2 }
+              }
+            ]
+          },
+          {
+            "rpm": 2300,
+            "performance": [
+              {
+                "manifoldPressureInHg": 16,
+                "stdMinus20C": { "bhpPercent": 51, "ktas": 117, "gph": 9.1 },
+                "std": { "bhpPercent": 49, "ktas": 115, "gph": 8.8 },
+                "stdPlus20C": { "bhpPercent": 48, "ktas": 111, "gph": 8.6 }
+              }
+            ]
+          },
+          {
+            "rpm": 2200,
+            "performance": [
+              {
+                "manifoldPressureInHg": 16,
+                "stdMinus20C": { "bhpPercent": 49, "ktas": 114, "gph": 8.8 },
+                "std": { "bhpPercent": 47, "ktas": 111, "gph": 8.6 },
+                "stdPlus20C": { "bhpPercent": 46, "ktas": 107, "gph": 8.3 }
+              }
+            ]
+          },
+          {
+            "rpm": 2100,
+            "performance": [
+              {
+                "manifoldPressureInHg": 16,
+                "stdMinus20C": { "bhpPercent": 47, "ktas": 110, "gph": 8.5 },
+                "std": { "bhpPercent": 45, "ktas": 105, "gph": 8.2 },
+                "stdPlus20C": { "bhpPercent": 43, "ktas": 103, "gph": 8.0 }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
