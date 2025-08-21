@@ -65,8 +65,8 @@ export default function FuelDistanceChart() {
       const printGrid = "#9ca3af"; // gray-400
       const printText = "#111827"; // legend labels
 
-      const legend = (((o.plugins = o.plugins || {}).legend = o.plugins.legend || {})
-        .labels = o.plugins.legend.labels || {});
+      const legend = (((o.plugins = o.plugins || {}).legend =
+        o.plugins.legend || {}).labels = o.plugins.legend.labels || {});
       const prevLegendColor = legend.color;
       legend.color = printText;
       restoreFns.push(() => {
@@ -100,10 +100,9 @@ export default function FuelDistanceChart() {
       });
 
       // Disable area fill for primary fuel remaining dataset (index 0)
-      const ds0 = chart.data?.datasets?.[0] as import("chart.js").ChartDataset<
-        "line",
-        { x: number; y: number }[]
-      > | undefined;
+      const ds0 = chart.data?.datasets?.[0] as
+        | import("chart.js").ChartDataset<"line", { x: number; y: number }[]>
+        | undefined;
       const prevFill = ds0?.fill;
       const prevBg = ds0?.backgroundColor as string | undefined;
       if (ds0) {

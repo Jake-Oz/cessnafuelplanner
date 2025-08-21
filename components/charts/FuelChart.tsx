@@ -175,10 +175,7 @@ export default function FuelChart() {
     );
     return Math.ceil(maxFuel / 5) * 5 || 5;
   }, [fuelRemaining, minRequired, minPlusHolding, minHoldingContingency]);
-  const step = React.useMemo(
-    () => Math.max(1, Math.round(yMax / 5)),
-    [yMax]
-  );
+  const step = React.useMemo(() => Math.max(1, Math.round(yMax / 5)), [yMax]);
 
   const data: ChartData<
     "line",
@@ -227,7 +224,9 @@ export default function FuelChart() {
         },
         // Contingency line (Min + Holding + Contingency)
         {
-          label: `Min + Holding + Contingency (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+          label: `Min + Holding + Contingency (${
+            settings.fuelUnits === "l" ? "L" : "gal"
+          })`,
           data: positionsNm.map((x, i) => ({
             x,
             y: minHoldingContingency[i],
@@ -242,7 +241,15 @@ export default function FuelChart() {
         },
       ],
     }),
-    [settings.fuelUnits, series, positionsNm, minRequired, waypointNames, minPlusHolding, minHoldingContingency]
+    [
+      settings.fuelUnits,
+      series,
+      positionsNm,
+      minRequired,
+      waypointNames,
+      minPlusHolding,
+      minHoldingContingency,
+    ]
   );
 
   const options: ChartOptions<"line"> = React.useMemo(
@@ -278,7 +285,8 @@ export default function FuelChart() {
           type: "linear",
           min: 0,
           suggestedMax:
-            Math.ceil((positionsNm[positionsNm.length - 1] || 0) / 50) * 50 || 50,
+            Math.ceil((positionsNm[positionsNm.length - 1] || 0) / 50) * 50 ||
+            50,
           ticks: { color: colorTick, stepSize: 50 },
           grid: { color: colorGrid },
           title: { display: true, text: "Distance (NM)", color: colorTick },
@@ -290,13 +298,24 @@ export default function FuelChart() {
           grid: { color: colorGrid },
           title: {
             display: true,
-            text: `Fuel Remaining (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+            text: `Fuel Remaining (${
+              settings.fuelUnits === "l" ? "L" : "gal"
+            })`,
             color: colorTick,
           },
         },
       },
     }),
-    [colorText, positionsNm, colorTick, colorGrid, yMax, step, waypointNames, settings.fuelUnits]
+    [
+      colorText,
+      positionsNm,
+      colorTick,
+      colorGrid,
+      yMax,
+      step,
+      waypointNames,
+      settings.fuelUnits,
+    ]
   );
 
   // Build a print-specific config without mutating the live chart
@@ -377,7 +396,8 @@ export default function FuelChart() {
           type: "linear",
           min: 0,
           suggestedMax:
-            Math.ceil((positionsNm[positionsNm.length - 1] || 0) / 50) * 50 || 50,
+            Math.ceil((positionsNm[positionsNm.length - 1] || 0) / 50) * 50 ||
+            50,
           ticks: { stepSize: 50, color: printTick },
           grid: { color: printGrid },
           title: { display: true, text: "Distance (NM)", color: printTick },
@@ -389,7 +409,9 @@ export default function FuelChart() {
           grid: { color: printGrid },
           title: {
             display: true,
-            text: `Fuel Remaining (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+            text: `Fuel Remaining (${
+              settings.fuelUnits === "l" ? "L" : "gal"
+            })`,
             color: printTick,
           },
         },
@@ -397,7 +419,11 @@ export default function FuelChart() {
       animation: false,
     };
 
-    return { data: printData, options: printOptions, plugins: [printWaypointPlugin] };
+    return {
+      data: printData,
+      options: printOptions,
+      plugins: [printWaypointPlugin],
+    };
   }, [data, waypointNames, positionsNm, yMax, step, settings.fuelUnits]);
 
   const handlePrint = React.useCallback(() => {
@@ -409,9 +435,9 @@ export default function FuelChart() {
     // Try an offscreen, print-styled chart for the snapshot
     try {
       if (chart) {
-        const liveCanvas = wrapperRef.current?.querySelector("canvas") as
-          | HTMLCanvasElement
-          | null;
+        const liveCanvas = wrapperRef.current?.querySelector(
+          "canvas"
+        ) as HTMLCanvasElement | null;
         const rect = liveCanvas?.getBoundingClientRect();
         const cssWidth = rect?.width || 0;
         const cssHeight = rect?.height || 0;
@@ -456,9 +482,9 @@ export default function FuelChart() {
       } catch {}
     }
     if (!dataUrl) {
-      const canvas = wrapperRef.current?.querySelector("canvas") as
-        | HTMLCanvasElement
-        | null;
+      const canvas = wrapperRef.current?.querySelector(
+        "canvas"
+      ) as HTMLCanvasElement | null;
       if (canvas) dataUrl = canvas.toDataURL("image/png");
     }
     if (!dataUrl) return;
