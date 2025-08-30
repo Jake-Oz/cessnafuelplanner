@@ -175,7 +175,9 @@ export default function FuelDistanceChart() {
         },
         // Holding threshold line
         {
-          label: `Reserve + Holding (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+          label: `Reserve + Holding (${
+            settings.fuelUnits === "l" ? "L" : "gal"
+          })`,
           data: [
             { x: 0, y: holdingY },
             { x: xMax, y: holdingY },
@@ -189,7 +191,9 @@ export default function FuelDistanceChart() {
         },
         // Contingency threshold line across X range
         {
-          label: `Reserve + Holding + Contingency (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+          label: `Reserve + Holding + Contingency (${
+            settings.fuelUnits === "l" ? "L" : "gal"
+          })`,
           data: [
             { x: 0, y: contingencyY },
             { x: xMax, y: contingencyY },
@@ -216,14 +220,9 @@ export default function FuelDistanceChart() {
           pointRadius: 0,
         },
       ],
-    }), [
-      series,
-      settings.fuelUnits,
-      reserveFuelY,
-      xMax,
-      holdingY,
-      contingencyY,
-    ]);
+    }),
+    [series, settings.fuelUnits, reserveFuelY, xMax, holdingY, contingencyY]
+  );
 
   const options = React.useMemo(
     () => ({
@@ -272,12 +271,15 @@ export default function FuelDistanceChart() {
           grid: { color: colorGrid },
           title: {
             display: true,
-            text: `Fuel Remaining (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+            text: `Fuel Remaining (${
+              settings.fuelUnits === "l" ? "L" : "gal"
+            })`,
             color: colorTick,
           },
         },
       },
-    }), [
+    }),
+    [
       colorText,
       waypointNames,
       settings.fuelUnits,
@@ -287,7 +289,8 @@ export default function FuelDistanceChart() {
       colorGrid,
       yMax,
       yStep,
-    ]);
+    ]
+  );
 
   // (print config and handler defined after options)
 
@@ -347,10 +350,7 @@ export default function FuelDistanceChart() {
 
     // Ensure the projection dataset is computed for print
     const computedDatasets = data.datasets.map((ds) => {
-      const typed = ds as ChartDataset<
-        "line",
-        { x: number; y: number }[]
-      >;
+      const typed = ds as ChartDataset<"line", { x: number; y: number }[]>;
       if (typed.label === "Projection to Reserve") {
         const lastIdx = positionsTimeRemaining.length - 1;
         const x0 = positionsTimeRemaining[lastIdx];
@@ -368,14 +368,14 @@ export default function FuelDistanceChart() {
       return { ...typed };
     });
 
-    const printData: ChartData<
-      "line",
-      { x: number; y: number }[],
-      number
-    > = {
+    const printData: ChartData<"line", { x: number; y: number }[], number> = {
       datasets: computedDatasets.map((ds, idx) =>
         idx === 0
-          ? ({ ...ds, fill: false, backgroundColor: "rgba(0,0,0,0)" } as typeof ds)
+          ? ({
+              ...ds,
+              fill: false,
+              backgroundColor: "rgba(0,0,0,0)",
+            } as typeof ds)
           : ds
       ),
     };
@@ -431,7 +431,11 @@ export default function FuelDistanceChart() {
           max: xMax,
           ticks: { color: printTick, stepSize: xStep },
           grid: { color: printGrid },
-          title: { display: true, text: "Time Remaining (min)", color: printTick },
+          title: {
+            display: true,
+            text: "Time Remaining (min)",
+            color: printTick,
+          },
         },
         y: {
           beginAtZero: true,
@@ -440,7 +444,9 @@ export default function FuelDistanceChart() {
           grid: { color: printGrid },
           title: {
             display: true,
-            text: `Fuel Remaining (${settings.fuelUnits === "l" ? "L" : "gal"})`,
+            text: `Fuel Remaining (${
+              settings.fuelUnits === "l" ? "L" : "gal"
+            })`,
             color: printTick,
           },
         },
@@ -448,7 +454,11 @@ export default function FuelDistanceChart() {
       animation: false,
     };
 
-    return { data: printData, options: printOptions, plugins: [printWaypointPlugin] };
+    return {
+      data: printData,
+      options: printOptions,
+      plugins: [printWaypointPlugin],
+    };
   }, [
     data,
     waypointNames,

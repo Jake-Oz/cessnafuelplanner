@@ -4,11 +4,14 @@
   :root {
     color-scheme: light;
   }
-  .dark :root {
+  .dark {
     color-scheme: dark;
   }
   body {
     /* Let Tailwind utilities set colors; default background as safety */
     background-color: theme("colors.white");
+  }
+  .dark body {
+    background-color: theme("colors.slate.900");
   }
 }
