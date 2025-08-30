@@ -17,8 +17,10 @@ export default function Summary() {
 
   const row = (label: string, value: string) => (
     <div className="flex justify-between text-sm">
-      <span className="text-slate-300">{label}</span>
-      <span className="text-slate-50 font-semibold">{value}</span>
+      <span className="text-slate-500 dark:text-white">{label}</span>
+      <span className="text-slate-600 dark:text-slate-50 font-semibold">
+        {value}
+      </span>
     </div>
   );
 
@@ -43,15 +45,15 @@ export default function Summary() {
         )}
       </div>
       <div className="rounded-lg border border-slate-500 bg-slate-700/30 p-3 space-y-1">
-        <div className="text-sm font-semibold text-slate-200">
+        <div className="text-sm font-semibold text-slate-500 dark:text-slate-200">
           Leg performance (POH)
         </div>
         {!pohData ? (
-          <div className="text-xs text-slate-200/90">
+          <div className="text-xs text-slate-500 dark:text-slate-200/90">
             POH data not loaded. Check public/flightdata.json and Network tab.
           </div>
         ) : (
-          <ul className="text-xs text-slate-200/90 space-y-1">
+          <ul className="text-xs text-slate-500 dark:text-slate-200/90 space-y-1">
             {legs.map((leg, idx) => {
               const alt = Math.max(0, leg.plannedAltitudeFt ?? 0);
               const rpm = leg.cruiseRpm ?? settings.cruiseRpm ?? 2400;
