@@ -26,9 +26,7 @@ export default function Summary() {
 
   return (
     <div className="space-y-3">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-50">
-        Summary
-      </h2>
+      <h2 className="text-lg font-semibold">Summary</h2>
       <div className="rounded-lg border border-slate-500 bg-slate-700/40 p-4 space-y-2">
         {row("Total time", `${summary.totalTimeMin.toFixed(1)} min`)}
         {row("Flight fuel", `${fmt(summary.totalFuelGal)} ${unit}`)}

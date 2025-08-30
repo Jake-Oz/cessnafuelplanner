@@ -15,3 +15,22 @@
     background-color: theme("colors.slate.900");
   }
 }
+
+/* Strengthen dark text color precedence for common utilities used in the app */
+@layer utilities {
+  .dark .dark\:text-slate-50 {
+    color: theme("colors.slate.50") !important;
+  }
+  .dark .dark\:text-slate-100 {
+    color: theme("colors.slate.100") !important;
+  }
+  .dark .dark\:text-slate-200 {
+    color: theme("colors.slate.200") !important;
+  }
+  .dark .dark\:text-slate-300 {
+    color: theme("colors.slate.300") !important;
+  }
+  .dark .dark\:text-white {
+    color: theme("colors.white") !important;
+  }
+}

@@ -50,7 +50,7 @@ export default function RootLayout({
                   CF
                 </div>
                 <div>
-                  <h1 className="text-sm font-semibold text-gray-900 dark:text-slate-100">
+                  <h1 className="text-sm font-semibold">
                     Cessna 182S Fuel Planner
                   </h1>
                   <p className="text-xs text-gray-600 dark:text-slate-300">
@@ -60,14 +60,6 @@ export default function RootLayout({
               </div>
               <div className="flex items-center gap-3">
                 <ThemeToggle />
-                <a
-                  className="text-xs text-gray-600 hover:text-gray-800 dark:text-slate-300 dark:hover:text-slate-200"
-                  href="https://nextjs.org"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Built with Next.js
-                </a>
               </div>
             </div>
           </header>

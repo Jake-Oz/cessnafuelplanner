@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { usePlannerStore } from "@/store/usePlannerStore";
-import clsx from "clsx";
 import { computePlan } from "@/lib/calc";
 
 // Phase concept removed; climb is auto-applied on altitude increases.
@@ -133,9 +132,7 @@ export default function LegEditor() {
           return legs.map((leg, idx) => (
             <div
               key={leg.id}
-              className={clsx(
-                "rounded-lg border p-3 text-gray-900 border-gray-200 bg-white dark:text-slate-100 dark:border-slate-500 dark:bg-slate-600"
-              )}
+              className="rounded-lg border p-3 border-gray-200 bg-white dark:border-slate-700 dark:bg-slate-800"
             >
               <div className="flex items-center gap-2 justify-between">
                 <div className="flex items-center gap-2">
