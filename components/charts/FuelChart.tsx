@@ -552,7 +552,7 @@ export default function FuelChart() {
           Print
         </button>
       </div>
-      <div className="rounded-lg border border-slate-600 bg-slate-800/50 p-4">
+      <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-600 dark:bg-slate-950/60">
         <Line
           ref={chartRef}
           data={data}

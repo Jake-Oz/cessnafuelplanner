@@ -219,7 +219,7 @@ export default function LegEditor() {
           return (
             <div
               key={leg.id}
-              className="rounded-lg border p-3 border-gray-200 bg-white dark:border-slate-700 dark:bg-slate-800"
+              className="rounded-lg border p-3 border-gray-200 bg-white dark:border-slate-600 dark:bg-slate-900"
             >
               <div className="flex items-center gap-2 justify-between">
                 <div className="flex items-center gap-2">
@@ -277,7 +277,7 @@ export default function LegEditor() {
                     }
                     className="mt-1 rounded border px-2 py-1.5 text-sm bg-white text-gray-900 border-gray-300 dark:bg-slate-700 dark:text-slate-50 dark:border-slate-600"
                   />
-                  <span className="mt-1 min-h-4 text-[11px] text-gray-500 dark:text-slate-300">
+                  <span className="mt-1 min-h-4 text-[11px] text-gray-600 dark:text-slate-300">
                     {leg.distanceSource === "airfield"
                       ? "From airfield coordinates"
                       : canUseAirfieldDistance
@@ -387,10 +387,12 @@ export default function LegEditor() {
                 </label>
               </div>
 
-              <div className="mt-3 rounded border border-gray-200 bg-gray-50 p-2 text-xs text-gray-700 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-200">
+              <div className="mt-3 rounded border border-gray-200 bg-gray-50 p-2 text-xs text-gray-700 dark:border-slate-600 dark:bg-slate-950/70 dark:text-slate-100">
                 <div className="grid gap-1 md:grid-cols-[1fr_auto_1fr] md:items-center">
                   <AirfieldLabel code={leg.from} />
-                  <div className="hidden text-gray-400 md:block">to</div>
+                  <div className="hidden text-gray-500 dark:text-slate-300 md:block">
+                    to
+                  </div>
                   <AirfieldLabel code={leg.to} />
                 </div>
                 {canUseAirfieldDistance && leg.distanceSource === "manual" ? (
@@ -425,8 +427,10 @@ export default function LegEditor() {
                     };
 
                     return (
-                      <div className="mt-2 text-xs text-gray-700 dark:text-slate-200/80">
-                        <div className="font-medium">Notes</div>
+                      <div className="mt-2 rounded border border-gray-100 bg-gray-50 p-2 text-xs text-gray-700 dark:border-slate-700 dark:bg-slate-950/50 dark:text-slate-100">
+                        <div className="font-medium text-gray-900 dark:text-slate-50">
+                          Notes
+                        </div>
                         <div>
                           Climb: time {fmt(comp.climbTimeMin)} min, dist{" "}
                           {fmt(comp.climbDistanceNm)} NM, fuel{" "}
@@ -478,14 +482,14 @@ function AirfieldLabel({ code }: { code: string }) {
   const airfield = findAirfieldByCode(code);
 
   if (!code) {
-    return <div className="text-gray-500 dark:text-slate-400">No code set</div>;
+    return <div className="text-gray-600 dark:text-slate-300">No code set</div>;
   }
 
   if (!airfield) {
     return (
       <div>
         <span className="font-semibold">{code}</span>
-        <span className="text-gray-500 dark:text-slate-400">
+        <span className="text-gray-600 dark:text-slate-300">
           {" "}
           not found in Australian airfield data
         </span>
@@ -501,7 +505,7 @@ function AirfieldLabel({ code }: { code: string }) {
     <div>
       <span className="font-semibold">{airfield.ident}</span>
       <span> {airfield.name}</span>
-      <span className="text-gray-500 dark:text-slate-400">
+      <span className="text-gray-600 dark:text-slate-300">
         {" "}
         ({place}
         {elevation})
