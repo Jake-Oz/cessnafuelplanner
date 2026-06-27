@@ -33,6 +33,7 @@ export default function LegEditor() {
       distanceSource: "airfield",
       fromElevationFt: last?.toElevationFt,
       plannedAltitudeFt: last?.plannedAltitudeFt ?? 8000,
+      plannedTimeSource: "auto",
     });
   };
 
@@ -52,6 +53,11 @@ export default function LegEditor() {
     if (from && to && next.distanceSource !== "manual") {
       nextPatch.distanceNM = Math.round(distanceNmBetweenAirfields(from, to));
       nextPatch.distanceSource = "airfield";
+    }
+
+    if (next.plannedTimeSource !== "manual") {
+      nextPatch.plannedTimeSource = "auto";
+      nextPatch.plannedTimeMin = undefined;
     }
 
     return nextPatch;
@@ -91,6 +97,23 @@ export default function LegEditor() {
       distanceSource: "airfield",
       fromElevationFt: from.elevationFt,
       toElevationFt: to.elevationFt,
+      ...(leg.plannedTimeSource === "manual"
+        ? {}
+        : { plannedTimeSource: "auto" as const, plannedTimeMin: undefined }),
+    });
+  };
+
+  const setTimeManually = (leg: WaypointLeg, timeMin: number) => {
+    updateLeg(leg.id, {
+      plannedTimeMin: Number.isFinite(timeMin) ? Math.max(0, timeMin) : undefined,
+      plannedTimeSource: "manual",
+    });
+  };
+
+  const restoreNilWindTime = (leg: WaypointLeg) => {
+    updateLeg(leg.id, {
+      plannedTimeMin: undefined,
+      plannedTimeSource: "auto",
     });
   };
 
@@ -184,6 +207,19 @@ export default function LegEditor() {
     () => computePlan(legs, settings, pohData).legs,
     [legs, settings, pohData]
   );
+  const nilWindComputedLegs = React.useMemo(
+    () =>
+      computePlan(
+        legs.map((leg) => ({
+          ...leg,
+          plannedTimeMin: undefined,
+          plannedTimeSource: "auto" as const,
+        })),
+        settings,
+        pohData
+      ).legs,
+    [legs, settings, pohData]
+  );
 
   return (
     <div className="space-y-4">
@@ -208,6 +244,11 @@ export default function LegEditor() {
           const fromAirfield = findAirfieldByCode(leg.from);
           const toAirfield = findAirfieldByCode(leg.to);
           const canUseAirfieldDistance = Boolean(fromAirfield && toAirfield);
+          const nilWindTimeMin = nilWindComputedLegs[idx]?.timeMin;
+          const isManualTime =
+            leg.plannedTimeSource === "manual" ||
+            (leg.plannedTimeSource === undefined &&
+              leg.plannedTimeMin !== undefined);
           const routeSuggestions = [
             ...searchAirfields(leg.from, 3),
             ...searchAirfields(leg.to, 3),
@@ -305,14 +346,32 @@ export default function LegEditor() {
                   Time (min)
                   <input
                     type="number"
-                    value={leg.plannedTimeMin ?? 0}
+                    step={0.1}
+                    min={0}
+                    value={
+                      isManualTime
+                        ? leg.plannedTimeMin ?? ""
+                        : nilWindTimeMin !== undefined
+                          ? Math.round(nilWindTimeMin * 10) / 10
+                          : ""
+                    }
                     onChange={(e) =>
-                      updateLeg(leg.id, {
-                        plannedTimeMin: Number(e.target.value) || undefined,
-                      })
+                      setTimeManually(leg, Number(e.target.value))
                     }
                     className="mt-1 rounded border px-2 py-1.5 text-sm bg-white text-gray-900 border-gray-300 dark:bg-slate-700 dark:text-slate-50 dark:border-slate-600"
                   />
+                  <span className="mt-1 min-h-4 text-[11px] text-gray-600 dark:text-slate-300">
+                    {isManualTime ? "Manual override" : "Nil wind estimate"}
+                  </span>
+                  {isManualTime ? (
+                    <button
+                      type="button"
+                      onClick={() => restoreNilWindTime(leg)}
+                      className="mt-1 w-fit rounded border border-gray-300 px-2 py-1 text-[11px] text-gray-700 hover:bg-gray-50 dark:border-slate-600 dark:text-slate-100 dark:hover:bg-slate-700"
+                    >
+                      Use nil wind
+                    </button>
+                  ) : null}
                 </label>
                 {/* Phase removed */}
                 <label className="flex flex-col text-xs md:col-span-1">

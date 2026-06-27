@@ -8,6 +8,7 @@ export interface WaypointLeg {
   toElevationFt?: number;
   plannedAltitudeFt?: number;
   plannedTimeMin?: number; // if not provided, computed from speed
+  plannedTimeSource?: "auto" | "manual";
   // Optional POH cruise overrides for this leg; if omitted, use Settings
   cruiseRpm?: number;
   cruiseManifoldInHg?: number;

@@ -15,7 +15,8 @@ export function computeLeg(
   const gph = settings.climbAllowanceGPH ?? 12;
   const ktas = settings.defaultCruiseKtas ?? 135;
 
-  const timeHours = leg.plannedTimeMin
+  const manualTime = usesManualTime(leg);
+  const timeHours = manualTime
     ? leg.plannedTimeMin / 60
     : leg.distanceNM / ktas;
   const fuelGal = timeHours * gph;
@@ -90,7 +91,8 @@ export function computePlan(
 
       // Subtract climb distance/time from leg where applicable
       const remainingDist = Math.max(0, leg.distanceNM - climbDistNm);
-      const remainingTimeHrs = leg.plannedTimeMin
+      const manualTime = usesManualTime(leg);
+      const remainingTimeHrs = manualTime
         ? Math.max(0, leg.plannedTimeMin / 60 - climbTimeMin / 60)
         : remainingDist / cruiseKtas;
       const cruiseFuel = remainingTimeHrs * cruiseGph;
@@ -181,4 +183,14 @@ export function computePlan(
 
 function average(ns: number[]): number {
   return ns.reduce((a, b) => a + b, 0) / (ns.length || 1);
+}
+
+function usesManualTime(leg: WaypointLeg): leg is WaypointLeg & {
+  plannedTimeMin: number;
+} {
+  return (
+    typeof leg.plannedTimeMin === "number" &&
+    leg.plannedTimeMin > 0 &&
+    (leg.plannedTimeSource === "manual" || leg.plannedTimeSource === undefined)
+  );
 }

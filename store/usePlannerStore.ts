@@ -42,6 +42,7 @@ function createLeg(
     fromElevationFt: fromAirfield?.elevationFt,
     toElevationFt: toAirfield?.elevationFt,
     plannedAltitudeFt,
+    plannedTimeSource: "auto",
   };
 }
 
