@@ -2,6 +2,7 @@
 import { create } from "zustand";
 import { WaypointLeg, FuelPlanSettings } from "@/types/flight";
 import type { FlightPOHData } from "@/types/poh";
+import { distanceNmBetweenAirfields, findAirfieldByCode } from "@/lib/airfields";
 
 export interface PlannerState {
   legs: WaypointLeg[];
@@ -19,26 +20,42 @@ export interface PlannerActions {
   reset: () => void;
 }
 
+function createLeg(
+  id: string,
+  from: string,
+  to: string,
+  plannedAltitudeFt: number
+): WaypointLeg {
+  const fromAirfield = findAirfieldByCode(from);
+  const toAirfield = findAirfieldByCode(to);
+  const distanceNM =
+    fromAirfield && toAirfield
+      ? Math.round(distanceNmBetweenAirfields(fromAirfield, toAirfield))
+      : 100;
+
+  return {
+    id,
+    from,
+    to,
+    distanceNM,
+    distanceSource: fromAirfield && toAirfield ? "airfield" : "manual",
+    fromElevationFt: fromAirfield?.elevationFt,
+    toElevationFt: toAirfield?.elevationFt,
+    plannedAltitudeFt,
+  };
+}
+
+const defaultLegs = [
+  createLeg("leg-1", "YSSY", "YSCB", 8000),
+  createLeg("leg-2", "YSCB", "YMML", 9000),
+];
+
 const defaultState: PlannerState = {
-  legs: [
-    {
-      id: "leg-1", // stable id to avoid hydration key mismatch
-      from: "KABC",
-      to: "KDEF",
-      distanceNM: 120,
-      plannedAltitudeFt: 8000,
-    },
-    {
-      id: "leg-2", // stable id to avoid hydration key mismatch
-      from: "KDEF",
-      to: "KGHI",
-      distanceNM: 250,
-      plannedAltitudeFt: 9000,
-    },
-  ],
+  legs: defaultLegs,
   settings: {
     // Default taxi fuel: 6 litres, stored internally in gallons
     taxiFuelGal: 1.585, // ~= 6 L
+    startFieldElevationFt: defaultLegs[0]?.fromElevationFt ?? 0,
     // Default starting fuel: 333 litres, stored internally in gallons
     startingFuelGal: 87.964, // ~= 333 L
     reserveMinutes: 30,

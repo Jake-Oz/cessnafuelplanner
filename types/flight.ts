@@ -3,6 +3,9 @@ export interface WaypointLeg {
   from: string; // ICAO or name
   to: string; // ICAO or name
   distanceNM: number; // nautical miles
+  distanceSource?: "airfield" | "manual";
+  fromElevationFt?: number;
+  toElevationFt?: number;
   plannedAltitudeFt?: number;
   plannedTimeMin?: number; // if not provided, computed from speed
   // Optional POH cruise overrides for this leg; if omitted, use Settings
@@ -15,6 +18,7 @@ export interface FuelPlanSettings {
   taxiFuelGal: number; // startup & taxi allowance
   reserveMinutes: number; // time-based reserve
   reserveFuelGal?: number; // optional fixed reserve gallons takes precedence if provided
+  startFieldElevationFt?: number; // departure field elevation to adjust initial climb
   climbAllowanceGPH?: number; // optional override for climb if no profile
   defaultCruiseKtas?: number; // used if profile lacks ktas
   // POH-driven options

@@ -53,7 +53,8 @@ export function computePlan(
     const defaultMp = settings.cruiseManifoldInHg;
     const globalTempBand = settings.tempBand ?? "std";
 
-    let prevAlt = 0; // assume depart S.L.
+    // Use departure field elevation (MSL) as the starting reference, clamp to >= 0 for POH tables
+    let prevAlt = Math.max(0, settings.startFieldElevationFt ?? 0);
 
     for (let i = 0; i < legs.length; i++) {
       const leg = legs[i];
@@ -67,7 +68,11 @@ export function computePlan(
       let climbDistNm = 0;
       if (needsClimb && climbDelta > 0) {
         const climb = getClimbFromSeaLevel(pohData, targetAlt, climbMode);
-        const fromPrev = getClimbFromSeaLevel(pohData, prevAlt, climbMode);
+        const fromPrev = getClimbFromSeaLevel(
+          pohData,
+          Math.max(0, prevAlt),
+          climbMode
+        );
         if (climb && fromPrev) {
           climbTimeMin = Math.max(0, climb.timeMin - fromPrev.timeMin);
           climbFuelGal = Math.max(0, climb.fuelUsedGal - fromPrev.fuelUsedGal);

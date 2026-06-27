@@ -2,6 +2,13 @@
 import React from "react";
 import { usePlannerStore } from "@/store/usePlannerStore";
 import { computePlan } from "@/lib/calc";
+import {
+  distanceNmBetweenAirfields,
+  findAirfieldByCode,
+  normalizeAirfieldCode,
+  searchAirfields,
+} from "@/lib/airfields";
+import type { WaypointLeg } from "@/types/flight";
 
 // Phase concept removed; climb is auto-applied on altitude increases.
 
@@ -11,6 +18,7 @@ export default function LegEditor() {
   const updateLeg = usePlannerStore((s) => s.updateLeg);
   const removeLeg = usePlannerStore((s) => s.removeLeg);
   const addLeg = usePlannerStore((s) => s.addLeg);
+  const setSettings = usePlannerStore((s) => s.setSettings);
   const pohData = usePlannerStore((s) => s.pohData);
   const settings = usePlannerStore((s) => s.settings);
   // Global POH selections are controlled in SettingsPanel.
@@ -22,7 +30,67 @@ export default function LegEditor() {
       from: last ? last.to : "",
       to: "",
       distanceNM: 100,
+      distanceSource: "airfield",
+      fromElevationFt: last?.toElevationFt,
       plannedAltitudeFt: last?.plannedAltitudeFt ?? 8000,
+    });
+  };
+
+  const applyAirfieldData = (
+    leg: WaypointLeg,
+    patch: Partial<WaypointLeg>
+  ): Partial<WaypointLeg> => {
+    const next = { ...leg, ...patch };
+    const from = findAirfieldByCode(next.from);
+    const to = findAirfieldByCode(next.to);
+    const nextPatch: Partial<WaypointLeg> = {
+      ...patch,
+      fromElevationFt: from?.elevationFt,
+      toElevationFt: to?.elevationFt,
+    };
+
+    if (from && to && next.distanceSource !== "manual") {
+      nextPatch.distanceNM = Math.round(distanceNmBetweenAirfields(from, to));
+      nextPatch.distanceSource = "airfield";
+    }
+
+    return nextPatch;
+  };
+
+  const updateRouteCode = (
+    leg: WaypointLeg,
+    field: "from" | "to",
+    rawCode: string
+  ) => {
+    const code = normalizeAirfieldCode(rawCode);
+    const patch = applyAirfieldData(leg, {
+      [field]: code,
+      distanceSource: leg.distanceSource === "manual" ? "manual" : "airfield",
+    });
+    updateLeg(leg.id, patch);
+
+    if (field === "from" && leg.id === legs[0]?.id) {
+      const airfield = findAirfieldByCode(code);
+      setSettings({ startFieldElevationFt: airfield?.elevationFt ?? 0 });
+    }
+  };
+
+  const setDistanceManually = (leg: WaypointLeg, distanceNM: number) => {
+    updateLeg(leg.id, {
+      distanceNM: Math.max(0, distanceNM),
+      distanceSource: "manual",
+    });
+  };
+
+  const restoreAirfieldDistance = (leg: WaypointLeg) => {
+    const from = findAirfieldByCode(leg.from);
+    const to = findAirfieldByCode(leg.to);
+    if (!from || !to) return;
+    updateLeg(leg.id, {
+      distanceNM: Math.round(distanceNmBetweenAirfields(from, to)),
+      distanceSource: "airfield",
+      fromElevationFt: from.elevationFt,
+      toElevationFt: to.elevationFt,
     });
   };
 
@@ -112,6 +180,11 @@ export default function LegEditor() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
 
+  const computedLegs = React.useMemo(
+    () => computePlan(legs, settings, pohData).legs,
+    [legs, settings, pohData]
+  );
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -127,9 +200,23 @@ export default function LegEditor() {
       </div>
 
       <div className="space-y-3">
-        {(() => {
-          const { legs: computedLegs } = computePlan(legs, settings, pohData);
-          return legs.map((leg, idx) => (
+        <div className="text-xs text-gray-600 dark:text-slate-300">
+          Climb calculations start from field elevation:{" "}
+          {Math.max(0, settings.startFieldElevationFt ?? 0)} ft
+        </div>
+        {legs.map((leg, idx) => {
+          const fromAirfield = findAirfieldByCode(leg.from);
+          const toAirfield = findAirfieldByCode(leg.to);
+          const canUseAirfieldDistance = Boolean(fromAirfield && toAirfield);
+          const routeSuggestions = [
+            ...searchAirfields(leg.from, 3),
+            ...searchAirfields(leg.to, 3),
+          ].filter(
+            (airfield, index, all) =>
+              all.findIndex((item) => item.ident === airfield.ident) === index
+          );
+
+          return (
             <div
               key={leg.id}
               className="rounded-lg border p-3 border-gray-200 bg-white dark:border-slate-700 dark:bg-slate-800"
@@ -146,37 +233,59 @@ export default function LegEditor() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-8 gap-3 mt-3">
-                <label className="flex flex-col text-xs">
-                  From
+              <div className="grid grid-cols-2 md:grid-cols-12 gap-3 mt-3">
+                <label className="flex flex-col text-xs md:col-span-2">
+                  From code
                   <input
+                    list={`airfields-${leg.id}`}
                     value={leg.from}
-                    onChange={(e) =>
-                      updateLeg(leg.id, { from: e.target.value })
-                    }
+                    onChange={(e) => updateRouteCode(leg, "from", e.target.value)}
+                    placeholder="YSSY"
+                    autoCapitalize="characters"
                     className="mt-1 rounded border px-2 py-1.5 text-sm bg-white text-gray-900 border-gray-300 dark:bg-slate-700 dark:text-slate-50 dark:border-slate-600"
                   />
                 </label>
-                <label className="flex flex-col text-xs">
-                  To
+                <label className="flex flex-col text-xs md:col-span-2">
+                  To code
                   <input
+                    list={`airfields-${leg.id}`}
                     value={leg.to}
-                    onChange={(e) => updateLeg(leg.id, { to: e.target.value })}
+                    onChange={(e) => updateRouteCode(leg, "to", e.target.value)}
+                    placeholder="YSCB"
+                    autoCapitalize="characters"
                     className="mt-1 rounded border px-2 py-1.5 text-sm bg-white text-gray-900 border-gray-300 dark:bg-slate-700 dark:text-slate-50 dark:border-slate-600"
                   />
+                  <datalist id={`airfields-${leg.id}`}>
+                    {routeSuggestions.map((airfield) => (
+                      <option
+                        key={airfield.ident}
+                        value={airfield.ident}
+                        label={`${airfield.name}, ${airfield.municipality ?? airfield.region}`}
+                      />
+                    ))}
+                  </datalist>
                 </label>
-                <label className="flex flex-col text-xs">
+                <label className="flex flex-col text-xs md:col-span-2">
                   Distance (NM)
                   <input
                     type="number"
+                    step={1}
+                    min={0}
                     value={leg.distanceNM}
                     onChange={(e) =>
-                      updateLeg(leg.id, { distanceNM: Number(e.target.value) })
+                      setDistanceManually(leg, Number(e.target.value))
                     }
                     className="mt-1 rounded border px-2 py-1.5 text-sm bg-white text-gray-900 border-gray-300 dark:bg-slate-700 dark:text-slate-50 dark:border-slate-600"
                   />
+                  <span className="mt-1 min-h-4 text-[11px] text-gray-500 dark:text-slate-300">
+                    {leg.distanceSource === "airfield"
+                      ? "From airfield coordinates"
+                      : canUseAirfieldDistance
+                        ? "Manual override"
+                        : "Enter known AU codes"}
+                  </span>
                 </label>
-                <label className="flex flex-col text-xs">
+                <label className="flex flex-col text-xs md:col-span-2">
                   Altitude (ft)
                   <input
                     type="number"
@@ -192,7 +301,7 @@ export default function LegEditor() {
                     className="mt-1 rounded border px-2 py-1.5 text-sm bg-white text-gray-900 border-gray-300 dark:bg-slate-700 dark:text-slate-50 dark:border-slate-600"
                   />
                 </label>
-                <label className="flex flex-col text-xs">
+                <label className="flex flex-col text-xs md:col-span-2">
                   Time (min)
                   <input
                     type="number"
@@ -206,7 +315,7 @@ export default function LegEditor() {
                   />
                 </label>
                 {/* Phase removed */}
-                <label className="flex flex-col text-xs">
+                <label className="flex flex-col text-xs md:col-span-1">
                   RPM
                   <select
                     value={leg.cruiseRpm ?? ""}
@@ -230,7 +339,7 @@ export default function LegEditor() {
                     ))}
                   </select>
                 </label>
-                <label className="flex flex-col text-xs">
+                <label className="flex flex-col text-xs md:col-span-1">
                   MP (inHg)
                   <select
                     value={leg.cruiseManifoldInHg ?? ""}
@@ -255,7 +364,7 @@ export default function LegEditor() {
                     ))}
                   </select>
                 </label>
-                <label className="flex flex-col text-xs">
+                <label className="flex flex-col text-xs md:col-span-2">
                   Temp Band
                   <select
                     value={leg.tempBand ?? ""}
@@ -276,6 +385,23 @@ export default function LegEditor() {
                     <option value="stdPlus20C">ISA +20C</option>
                   </select>
                 </label>
+              </div>
+
+              <div className="mt-3 rounded border border-gray-200 bg-gray-50 p-2 text-xs text-gray-700 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-200">
+                <div className="grid gap-1 md:grid-cols-[1fr_auto_1fr] md:items-center">
+                  <AirfieldLabel code={leg.from} />
+                  <div className="hidden text-gray-400 md:block">to</div>
+                  <AirfieldLabel code={leg.to} />
+                </div>
+                {canUseAirfieldDistance && leg.distanceSource === "manual" ? (
+                  <button
+                    type="button"
+                    onClick={() => restoreAirfieldDistance(leg)}
+                    className="mt-2 rounded border border-gray-300 px-2 py-1 text-xs text-gray-700 hover:bg-white dark:border-slate-600 dark:text-slate-100 dark:hover:bg-slate-700"
+                  >
+                    Use calculated distance
+                  </button>
+                ) : null}
               </div>
 
               {/* Computed breakdown note */}
@@ -341,9 +467,45 @@ export default function LegEditor() {
                   })()
                 : null}
             </div>
-          ));
-        })()}
+          );
+        })}
       </div>
+    </div>
+  );
+}
+
+function AirfieldLabel({ code }: { code: string }) {
+  const airfield = findAirfieldByCode(code);
+
+  if (!code) {
+    return <div className="text-gray-500 dark:text-slate-400">No code set</div>;
+  }
+
+  if (!airfield) {
+    return (
+      <div>
+        <span className="font-semibold">{code}</span>
+        <span className="text-gray-500 dark:text-slate-400">
+          {" "}
+          not found in Australian airfield data
+        </span>
+      </div>
+    );
+  }
+
+  const elevation =
+    airfield.elevationFt === undefined ? "" : `, ${airfield.elevationFt} ft`;
+  const place = airfield.municipality ?? airfield.region;
+
+  return (
+    <div>
+      <span className="font-semibold">{airfield.ident}</span>
+      <span> {airfield.name}</span>
+      <span className="text-gray-500 dark:text-slate-400">
+        {" "}
+        ({place}
+        {elevation})
+      </span>
     </div>
   );
 }
