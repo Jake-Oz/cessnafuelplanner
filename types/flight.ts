@@ -2,6 +2,7 @@ export interface WaypointLeg {
   id: string;
   from: string; // ICAO or name
   to: string; // ICAO or name
+  fromSource?: "auto" | "manual";
   distanceNM: number; // nautical miles
   distanceSource?: "airfield" | "manual";
   fromElevationFt?: number;

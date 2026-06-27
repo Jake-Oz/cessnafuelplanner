@@ -29,6 +29,7 @@ export default function LegEditor() {
       id: crypto.randomUUID(),
       from: last ? last.to : "",
       to: "",
+      fromSource: last ? "auto" : "manual",
       distanceNM: 100,
       distanceSource: "airfield",
       fromElevationFt: last?.toElevationFt,
@@ -71,6 +72,7 @@ export default function LegEditor() {
     const code = normalizeAirfieldCode(rawCode);
     const patch = applyAirfieldData(leg, {
       [field]: code,
+      ...(field === "from" ? { fromSource: "manual" as const } : {}),
       distanceSource: leg.distanceSource === "manual" ? "manual" : "airfield",
     });
     updateLeg(leg.id, patch);

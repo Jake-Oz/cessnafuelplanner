@@ -143,8 +143,9 @@ export default function FuelDistanceChart() {
       positionsTimeRemaining.map((timeRem, i) => ({
         x: timeRem,
         y: fuelRemaining[i],
+        name: waypointNames[i],
       })),
-    [positionsTimeRemaining, fuelRemaining]
+    [positionsTimeRemaining, fuelRemaining, waypointNames]
   );
 
   const data = React.useMemo(
@@ -240,7 +241,10 @@ export default function FuelDistanceChart() {
             },
             label(it: TooltipItem<"line">) {
               const idx = it.dataIndex as number;
-              const name = waypointNames[idx] ?? "";
+              const raw = it.dataset.data[idx] as
+                | { name?: string }
+                | undefined;
+              const name = raw?.name ?? "";
               const y = it.parsed.y as number;
               const unit = settings.fuelUnits === "l" ? "L" : "gal";
               const parts: string[] = [];
@@ -279,17 +283,7 @@ export default function FuelDistanceChart() {
         },
       },
     }),
-    [
-      colorText,
-      waypointNames,
-      settings.fuelUnits,
-      xMax,
-      colorTick,
-      xStep,
-      colorGrid,
-      yMax,
-      yStep,
-    ]
+    [colorText, settings.fuelUnits, xMax, colorTick, xStep, colorGrid, yMax, yStep]
   );
 
   // (print config and handler defined after options)
@@ -331,7 +325,14 @@ export default function FuelDistanceChart() {
       ctx.textAlign = "center";
       for (let i = 0; i < meta.data.length; i++) {
         const point = meta.data[i] as PointElType;
-        const label: string | undefined = waypointNames[i];
+        const ds = chart.data.datasets[0] as ChartDataset<
+          "line",
+          { x: number; y: number; name?: string }[]
+        >;
+        const datum = ds.data[i] as
+          | { x: number; y: number; name?: string }
+          | undefined;
+        const label: string | undefined = datum?.name;
         if (!point || !label) continue;
         const { x, y } = point as unknown as { x: number; y: number };
         const yOffset = y < chartArea.top + 20 ? 12 : -8;
@@ -350,7 +351,10 @@ export default function FuelDistanceChart() {
 
     // Ensure the projection dataset is computed for print
     const computedDatasets = data.datasets.map((ds) => {
-      const typed = ds as ChartDataset<"line", { x: number; y: number }[]>;
+      const typed = ds as ChartDataset<
+        "line",
+        { x: number; y: number; name?: string }[]
+      >;
       if (typed.label === "Projection to Reserve") {
         const lastIdx = positionsTimeRemaining.length - 1;
         const x0 = positionsTimeRemaining[lastIdx];
@@ -360,7 +364,7 @@ export default function FuelDistanceChart() {
         return {
           ...typed,
           data: [
-            { x: x0, y: y0 },
+            { x: x0, y: y0, name: waypointNames[lastIdx] },
             { x: x1, y: y1 },
           ],
         };
@@ -368,7 +372,11 @@ export default function FuelDistanceChart() {
       return { ...typed };
     });
 
-    const printData: ChartData<"line", { x: number; y: number }[], number> = {
+    const printData: ChartData<
+      "line",
+      { x: number; y: number; name?: string }[],
+      number
+    > = {
       datasets: computedDatasets.map((ds, idx) =>
         idx === 0
           ? ({
@@ -407,7 +415,14 @@ export default function FuelDistanceChart() {
         ctx.textAlign = "center";
         for (let i = 0; i < meta.data.length; i++) {
           const point = meta.data[i] as PointElType;
-          const label: string | undefined = waypointNames[i];
+          const ds = chart.data.datasets[0] as ChartDataset<
+            "line",
+            { x: number; y: number; name?: string }[]
+          >;
+          const datum = ds.data[i] as
+            | { x: number; y: number; name?: string }
+            | undefined;
+          const label: string | undefined = datum?.name;
           if (!point || !label) continue;
           const { x, y } = point as unknown as { x: number; y: number };
           const yOffset = y < chartArea.top + 20 ? 12 : -8;
@@ -613,12 +628,12 @@ export default function FuelDistanceChart() {
               return {
                 ...ds,
                 data: [
-                  { x: x0, y: y0 },
+                  { x: x0, y: y0, name: waypointNames[lastIdx] },
                   { x: x1, y: y1 },
                 ],
               } as import("chart.js").ChartDataset<
                 "line",
-                { x: number; y: number }[]
+                { x: number; y: number; name?: string }[]
               >;
             }),
           }}
